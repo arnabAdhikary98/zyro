@@ -1,0 +1,109 @@
+/* Route/Page Transition Animations */
+.route-transition-enter {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  z-index: 1;
+}
+.route-transition-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.route-transition-exit {
+  opacity: 1;
+  transform: none;
+}
+.route-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-32px) scale(0.98);
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Loading state for page navigation */
+.page-loading {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(249,250,251,0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: opacity 0.3s;
+}
+.page-loading .spinner {
+  width: 2.5em;
+  height: 2.5em;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3182CE;
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+}
+
+/* Breadcrumb styling (for product detail) */
+.breadcrumb {
+  font-size: 0.98rem;
+  color: var(--color-primary, #3182CE);
+  margin-bottom: var(--space-md, 1rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.breadcrumb a {
+  color: var(--color-primary, #3182CE);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.breadcrumb a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.breadcrumb .separator {
+  color: #b6c3d1;
+  font-size: 1.1em;
+}
+/* Card hover animation */
+.card {
+  transition: box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+              transform 0.18s cubic-bezier(0.4,0,0.2,1);
+}
+.card:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(49,130,206,0.10);
+}
+
+/* Fade-in animation for page loads */
+.fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Smooth transitions for interactive elements */
+button, .btn, a, .card, input, select {
+  transition: background 0.18s, color 0.18s, border 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+/* Loading skeleton animation */
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 6px;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Micro-interactions for buttons and links */
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+}
+a:active {
+  opacity: 0.7;
+}

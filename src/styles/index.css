@@ -1,0 +1,46 @@
+/* Global styles and color palette */
+:root {
+  --brand-blue: #3B82F6;
+  --background: #F9FAFB;
+  --text: #111827;
+  --accent: #E5E7EB;
+}
+
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+}

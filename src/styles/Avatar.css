@@ -1,0 +1,26 @@
+
+.avatar {
+
+  aspect-ratio: 1 / 1;
+  width: clamp(180px, 22vw, 180px);
+  height: clamp(180px, 22vw, 180px);
+  border-radius: 50%;
+  border: 2px solid var(--color-accent, #E5E7EB);
+  background: var(--color-background, #F9FAFB);
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+  transition: box-shadow 0.18s;
+}
+
+.avatar.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 50%;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

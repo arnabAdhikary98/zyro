@@ -1,0 +1,103 @@
+
+/* Base button styles */
+.btn {
+  --btn-bg: var(--color-primary, #3182CE);
+  --btn-color: #fff;
+  --btn-border: none;
+  --btn-radius: var(--radius-md, 8px);
+  --btn-shadow: 0 2px 8px rgba(49,130,206,0.08);
+  --btn-padding: 0.6em 1.4em;
+  --btn-font-size: 1rem;
+  --btn-font-weight: 500;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: var(--btn-border);
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  position: relative;
+}
+
+/* Primary (default) */
+.btn-primary {
+  --btn-bg: var(--color-primary, #3182CE);
+  --btn-color: #fff;
+}
+.btn-primary:hover:not(:disabled):not(.loading) {
+  background: var(--color-primary-dark, #2563eb);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(49,130,206,0.13);
+}
+
+/* Secondary */
+.btn-secondary {
+  --btn-bg: #fff;
+  --btn-color: var(--color-primary, #3182CE);
+  --btn-border: 1.5px solid var(--color-primary, #3182CE);
+}
+.btn-secondary:hover:not(:disabled):not(.loading) {
+  background: var(--color-accent, #E5E7EB);
+  color: var(--color-primary-dark, #2563eb);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Ghost */
+.btn-ghost {
+  --btn-bg: transparent;
+  --btn-color: var(--color-primary, #3182CE);
+  --btn-border: none;
+  box-shadow: none;
+}
+.btn-ghost:hover:not(:disabled):not(.loading) {
+  background: var(--color-accent, #E5E7EB);
+  color: var(--color-primary-dark, #2563eb);
+  transform: scale(1.04);
+}
+
+/* Focus state for accessibility */
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary, #3182CE);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(49,130,206,0.15);
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.2);
+}
+
+/* Loading state */
+.btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.btn.loading::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  border-top: 2px solid var(--color-primary, #3182CE);
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+@keyframes btn-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

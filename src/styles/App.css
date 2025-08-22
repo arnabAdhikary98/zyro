@@ -1,0 +1,81 @@
+
+/* App-level layout helpers */
+.app-main {
+  min-block-size: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+}
+
+/* Subtle hover effects for interactive elements */
+a, .btn, button, .card, input, select {
+  -webkit-transition: background 0.18s, color 0.18s, box-shadow 0.18s, -webkit-transform 0.15s;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+}
+a:hover, .btn:hover, button:hover, .card:hover {
+  filter: brightness(1.04);
+  -webkit-box-shadow: 0 4px 16px rgba(49,130,206,0.10);
+  box-shadow: 0 4px 16px rgba(49,130,206,0.10);
+}
+
+/* Click animation with transform */
+a:active, .btn:active, button:active, .card:active {
+  -webkit-transform: scale(0.97);
+  transform: scale(0.97);
+  -webkit-box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+  box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+}
+
+/* Loading spinner utility */
+.spinner {
+  width: 2em;
+  height: 2em;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3182CE;
+  border-radius: 50%;
+  -webkit-animation: btn-spin 0.7s linear infinite;
+  animation: btn-spin 0.7s linear infinite;
+  margin: auto;
+}
+@-webkit-keyframes btn-spin {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes btn-spin {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+/* Skeleton screen utility */
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  -webkit-animation: skeleton-loading 1.2s infinite linear;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 6px;
+}
+@-webkit-keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Focus management for keyboard navigation */
+a:focus-visible, .btn:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2.5px solid #3182CE;
+  outline-offset: 2px;
+  -webkit-box-shadow: 0 0 0 3px rgba(49,130,206,0.18);
+  box-shadow: 0 0 0 3px rgba(49,130,206,0.18);
+  z-index: 2;
+}
+/* Fallbacks for aspect-ratio */
+.card img, .avatar, .product-detail-image {
+  width: 100%;
+  height: auto;
+  /* aspect-ratio fallback for older browsers */
+  /* Modern browsers will use aspect-ratio property from other CSS files */
+}
